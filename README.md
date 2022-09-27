@@ -4,7 +4,7 @@ Following technologies are used in this project
 
 Nginx <br/>
 Tomcat <br/>
-RabbitMQ <br/>
+RabbitMQ \
 Memcached <br/>
 MySQL <br/>
 
