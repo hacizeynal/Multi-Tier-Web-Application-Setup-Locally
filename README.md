@@ -2,10 +2,12 @@
 
 Following technologies are used in this project
 
-NGINX <br/>
-TOMCAT <br/>
-RABBITMQ <br/>
-MEMCACHED
-MYSQL
+Nginx <br/>
+Tomcat <br/>
+RabbitMQ <br/>
+Memcached <br/>
+MySQL <br/>
 
 ![](high%20level%20overview.png)
+
+
