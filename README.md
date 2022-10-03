@@ -41,4 +41,5 @@ Then look for the file :
 - /src/main/resources/accountsdb
 - accountsdb.sql file is a mysql dump file.we have to import this dump to mysql db server
 - > mysql -u <user_name> -p accounts < accountsdb.sql
-.
+
+Please navigate to vagrant/manual_provisioning/VprofileProjectSetup.pdf for step by step instructions
