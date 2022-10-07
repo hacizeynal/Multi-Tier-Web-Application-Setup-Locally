@@ -42,4 +42,21 @@ Then look for the file :
 - accountsdb.sql file is a mysql dump file.we have to import this dump to mysql db server
 - > mysql -u <user_name> -p accounts < accountsdb.sql
 
-Please navigate to vagrant/manual_provisioning/VprofileProjectSetup.pdf for step by step instructions
+## MYSQL Setup
+
+Login to the db vm
+$ vagrant ssh db01
+Verify Hosts entry, if entries missing update the it with IP and hostnames
+# cat /etc/hosts
+Update OS with latest patches
+# yum update -y
+Set Repository
+# yum install epel-release -y
+Install Maria DB Package
+# yum install git mariadb-server -y
+Starting & enabling mariadb-server
+# systemctl start mariadb
+# systemctl enable mariadb
+RUN mysql secure installation script.
+# mysql_secure_installation
+NOTE: Set db root password, I will be using admin123 as password
