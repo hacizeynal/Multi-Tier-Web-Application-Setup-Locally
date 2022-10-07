@@ -55,8 +55,10 @@ Set Repository
 Install Maria DB Package
 # yum install git mariadb-server -y
 Starting & enabling mariadb-server
-# systemctl start mariadb
-# systemctl enable mariadb
+```
+systemctl start mariadb
+systemctl enable mariadb
+```
 RUN mysql secure installation script.
-# mysql_secure_installation
+mysql_secure_installation
 NOTE: Set db root password, I will be using admin123 as password
