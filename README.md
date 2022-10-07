@@ -179,3 +179,14 @@ sudo sh -c 'echo "[{rabbit, [{loopback_users, []}]}]." > /etc/rabbitmq/rabbitmq.
 sudo rabbitmqctl add_user test test
 sudo rabbitmqctl set_user_tags test administrator
 ```
+Restart RabbitMQ service
+```
+systemctl restart rabbitmq-server
+```
+Enabling the firewall and allowing port 25672 to access the rabbitmq permanently
+```
+systemctl start firewalld
+systemctl enable firewalld
+firewall-cmd --get-active-zones
+firewall-cmd --zone=public --add-port=25672/tcp --permanent # firewall-cmd --reload
+```
