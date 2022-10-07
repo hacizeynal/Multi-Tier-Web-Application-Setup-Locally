@@ -109,8 +109,29 @@ Restart mariadb-server
 systemctl restart mariadb
 ```
 Starting the firewall and allowing the mariadb to access from port no. 3306
+```
 systemctl start firewalld
 systemctl enable firewalld
 firewall-cmd --get-active-zones
 firewall-cmd --zone=public --add-port=3306/tcp --permanent # firewall-cmd --reload
 systemctl restart mariadb
+```
+## MEMCACHE SETUP
+
+Install, start & enable memcache on port 11211
+```
+yum install epel-release -y
+yum install memcached -y
+systemctl start memcached
+systemctl enable memcached
+systemctl status memcached
+memcached -p 11211 -U 11111 -u memcached -d
+```
+Starting the firewall and allowing the port 11211 to access memcache
+```
+systemctl enable firewalld
+systemctl start firewalld
+systemctl status firewalld
+firewall-cmd --add-port=11211/tcp --permanent # firewall-cmd --reload
+memcached -p 11211 -U 11111 -u memcache -d
+```
