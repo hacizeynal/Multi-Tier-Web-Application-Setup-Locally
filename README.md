@@ -90,3 +90,27 @@ Remove test database and access to it? [Y/n] Y - Dropping test database...
 Reloading the privilege tables will ensure that all changes made so far will take effect immediately.
 Reload privilege tables now? [Y/n] Y ... Success!
 ```
+Set DB name and users.
+```
+mysql -u root -padmin123
+mysql> create database accounts;
+mysql> grant all privileges on accounts.* TO 'admin'@’%’ identified by 'admin123' ; mysql> FLUSH PRIVILEGES;
+mysql> exit;
+```
+Download Source code & Initialize Database.
+```
+git clone -b local-setup https://github.com/devopshydclub/vprofile-project.git # cd vprofile-project
+mysql -u root -padmin123 accounts < src/main/resources/db_backup.sql
+mysql -u root -padmin123 accounts
+mysql> show tables;
+```
+Restart mariadb-server
+```
+systemctl restart mariadb
+```
+Starting the firewall and allowing the mariadb to access from port no. 3306
+systemctl start firewalld
+systemctl enable firewalld
+firewall-cmd --get-active-zones
+firewall-cmd --zone=public --add-port=3306/tcp --permanent # firewall-cmd --reload
+systemctl restart mariadb
