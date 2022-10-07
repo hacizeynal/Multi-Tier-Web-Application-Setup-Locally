@@ -135,3 +135,47 @@ systemctl status firewalld
 firewall-cmd --add-port=11211/tcp --permanent # firewall-cmd --reload
 memcached -p 11211 -U 11111 -u memcache -d
 ```
+## RABBITMQ SETUP
+
+Login to the RabbitMQ vm
+
+```
+vagrant ssh rmq01
+```
+
+Verify Hosts entry, if entries missing update the it with IP and hostnames
+```
+cat /etc/hosts
+```
+Update OS with latest patches
+```
+yum update -y
+```
+Set EPEL Repository
+```
+yum install epel-release -y
+```
+Install Dependencies
+```
+sudo yum install wget -y
+```
+```
+cd /tmp/
+wget http://packages.erlang-solutions.com/erlang-solutions-2.0-1.noarch.rpm #sudo rpm -Uvh erlang-solutions-2.0-1.noarch.rpm
+sudo yum -y install erlang socat
+```
+
+Install Rabbitmq Server
+```
+curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash #sudo yum install rabbitmq-server -y
+```
+Start & Enable RabbitMQ
+```
+sudo systemctl start rabbitmq-server #sudo systemctl enable rabbitmq-server #sudo systemctl status rabbitmq-server
+```
+Config Change
+```
+sudo sh -c 'echo "[{rabbit, [{loopback_users, []}]}]." > /etc/rabbitmq/rabbitmq.config'
+sudo rabbitmqctl add_user test test
+sudo rabbitmqctl set_user_tags test administrator
+```
