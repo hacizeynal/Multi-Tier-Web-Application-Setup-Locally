@@ -68,7 +68,9 @@ systemctl start mariadb
 systemctl enable mariadb
 ```
 RUN mysql secure installation script.
-```mysql_secure_installation```
+```
+mysql_secure_installation
+```
 NOTE: Set db root password, I will be using admin123 as password
 
 ```
