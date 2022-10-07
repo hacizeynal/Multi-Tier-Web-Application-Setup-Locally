@@ -47,13 +47,21 @@ Then look for the file :
 Login to the db vm
 $ vagrant ssh db01
 Verify Hosts entry, if entries missing update the it with IP and hostnames
-```cat /etc/hosts```
+```
+cat /etc/hosts
+```
 Update OS with latest patches
-```yum update -y```
+```
+yum update -y
+```
 Set Repository
-```yum install epel-release -y```
+```
+yum install epel-release -y
+```
 Install Maria DB Package
-```yum install git mariadb-server -y```
+```
+yum install git mariadb-server -y
+```
 Starting & enabling mariadb-server
 ```
 systemctl start mariadb
