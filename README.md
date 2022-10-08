@@ -178,8 +178,9 @@ Config Change
 sudo sh -c 'echo "[{rabbit, [{loopback_users, []}]}]." > /etc/rabbitmq/rabbitmq.config'
 sudo rabbitmqctl add_user test test
 sudo rabbitmqctl set_user_tags test administrator
-```
+
 Restart RabbitMQ service
+
 ```
 systemctl restart rabbitmq-server
 ```
@@ -191,6 +192,7 @@ firewall-cmd --get-active-zones
 firewall-cmd --zone=public --add-port=25672/tcp --permanent # firewall-cmd --reload
 ```
 ## TOMCAT SETUP
+
 
 Login to the tomcat vm
 
