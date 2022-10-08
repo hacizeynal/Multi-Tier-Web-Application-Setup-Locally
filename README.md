@@ -354,7 +354,7 @@ ln -s /etc/nginx/sites-available/vproapp /etc/nginx/sites-enabled/vproapp
 Restart Nginx
 ```
 systemctl restart nginx
-```
+
 
 Navigate to the browser and go with http://ip_address_of_web:80 (you can find ip address by going any linux server and do cat/etc/hosts command) ,after initial page you should login to with credentials admin_vp/admin_vp ,if it is successfull it means there is end to end successfull integration.
 
