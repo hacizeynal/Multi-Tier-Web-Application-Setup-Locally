@@ -174,6 +174,7 @@ Start & Enable RabbitMQ
 sudo systemctl start rabbitmq-server #sudo systemctl enable rabbitmq-server #sudo systemctl status rabbitmq-server
 ```
 Config Change
+
 ```
 sudo sh -c 'echo "[{rabbit, [{loopback_users, []}]}]." > /etc/rabbitmq/rabbitmq.config'
 sudo rabbitmqctl add_user test test
@@ -263,6 +264,8 @@ ExecStop=/usr/local/tomcat8/bin/shutdown.sh SyslogIdentifier=tomcat-%i
 
 [Install] 
 WantedBy=multi-user.target
+
+```
 ```
 systemctl daemon-reload 
 systemctl start tomcat
